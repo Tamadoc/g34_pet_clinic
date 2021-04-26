@@ -51,6 +51,7 @@ public class OwnerController {
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
+    //http://localhost:8080/api/v1/owner/search/?firstName=Test Owner&lastName=Test Owner LN
     @GetMapping("/search")
     public ResponseEntity<List<OwnerDto>> advanceSearch(
             @RequestParam(value = "firstName", required = false) String firstName,
