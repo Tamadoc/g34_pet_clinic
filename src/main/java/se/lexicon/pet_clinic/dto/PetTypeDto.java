@@ -1,6 +1,10 @@
 package se.lexicon.pet_clinic.dto;
 
-public class PetTypeDto {
-    // todo: implement PetTypeDto
+import lombok.Data;
 
+@Data
+public class PetTypeDto {
+    // done: implement PetTypeDto
+    private int id;
+    private String name;
 }
