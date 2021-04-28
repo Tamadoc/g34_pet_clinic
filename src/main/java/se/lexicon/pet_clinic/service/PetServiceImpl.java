@@ -3,6 +3,7 @@ package se.lexicon.pet_clinic.service;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import se.lexicon.pet_clinic.dto.PetDto;
 import se.lexicon.pet_clinic.entity.Pet;
 import se.lexicon.pet_clinic.exception.DataNotFoundException;
@@ -30,6 +31,7 @@ public class PetServiceImpl implements PetService {
         this.modelMapper = modelMapper;
     }
 
+    @Transactional
     @Override
     public PetDto save(PetDto dto) {
         if (dto == null) {
@@ -44,6 +46,7 @@ public class PetServiceImpl implements PetService {
         return convertEntityToDto;
     }
 
+    @Transactional
     @Override
     public PetDto update(PetDto dto) throws DataNotFoundException {
         if (dto == null) {
@@ -94,7 +97,7 @@ public class PetServiceImpl implements PetService {
 
     @Override
     public List<PetDto> findByName(String petName) throws DataNotFoundException {
-        return petRepository.findByName(petName)
+        return petRepository.findByNameIgnoreCase(petName)
                 .stream().map(pet -> modelMapper.map(pet, PetDto.class))
                 .collect(Collectors.toList());
     }

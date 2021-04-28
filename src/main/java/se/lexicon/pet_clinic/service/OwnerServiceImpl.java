@@ -3,6 +3,7 @@ package se.lexicon.pet_clinic.service;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import se.lexicon.pet_clinic.dto.OwnerDto;
 import se.lexicon.pet_clinic.entity.Owner;
 import se.lexicon.pet_clinic.exception.DataNotFoundException;
@@ -31,6 +32,7 @@ public class OwnerServiceImpl implements OwnerService {
         this.modelMapper = modelMapper;
     }
 
+    @Transactional
     @Override
     public OwnerDto save(OwnerDto dto) {
         if (dto == null) {
@@ -45,6 +47,7 @@ public class OwnerServiceImpl implements OwnerService {
         return convertEntityToDto;
     }
 
+    @Transactional
     @Override
     public OwnerDto update(OwnerDto dto) throws DataNotFoundException {
         if (dto == null) {

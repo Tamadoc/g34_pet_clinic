@@ -14,7 +14,7 @@ public interface PetRepository extends CrudRepository<Pet, String> {
     //to do: select pet by owner first name and last name
     //to do: select pet by owner telephone
 
-    List<Pet> findByName(String name);
+    List<Pet> findByNameIgnoreCase(String name);
 
     List<Pet> findByPetTypeNameIgnoreCase(String petTypeName);
 
