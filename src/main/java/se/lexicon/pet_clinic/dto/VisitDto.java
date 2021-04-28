@@ -1,7 +1,6 @@
 package se.lexicon.pet_clinic.dto;
 
 import lombok.Data;
-import se.lexicon.pet_clinic.entity.Pet;
 
 import java.time.LocalDate;
 
@@ -9,7 +8,7 @@ import java.time.LocalDate;
 public class VisitDto {
     // done: implement VisitDao
     private String id;
-    private Pet pet;
+    private PetDto pet;
     private LocalDate visitDate;
     private String description;
 }

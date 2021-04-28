@@ -1,8 +1,17 @@
 package se.lexicon.pet_clinic.repository;
 
-public interface VisitRepository {
-    // todo: implement basic CRUD
+import org.springframework.data.repository.CrudRepository;
+import se.lexicon.pet_clinic.entity.Visit;
 
-    //todo: select visit by pet name
-    //todo: select visit by pet type name
+import java.util.List;
+
+public interface VisitRepository extends CrudRepository<Visit, String> {
+    // to do: implement basic CRUD
+
+    //to do: select visit by pet name
+    //to do: select visit by pet type name
+
+    List<Visit> findByPetName(String petName);
+
+    List<Visit> findByPetPetTypeName(String petTypeName);
 }
